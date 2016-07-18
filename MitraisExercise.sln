@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MitraisExercise.Web", "Mitr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MitraisExercise.Repository", "MitraisExercise.Repository\MitraisExercise.Repository.csproj", "{D5BB7850-4DEA-4F76-A290-C47B2C717E3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MitraisExercise.Model", "MitraisExercise.Model\MitraisExercise.Model.csproj", "{5E745119-EDA6-4956-947F-314463A216A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D5BB7850-4DEA-4F76-A290-C47B2C717E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5BB7850-4DEA-4F76-A290-C47B2C717E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5BB7850-4DEA-4F76-A290-C47B2C717E3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E745119-EDA6-4956-947F-314463A216A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E745119-EDA6-4956-947F-314463A216A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E745119-EDA6-4956-947F-314463A216A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E745119-EDA6-4956-947F-314463A216A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

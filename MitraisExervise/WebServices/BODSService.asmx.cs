@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MitraisExercise.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
 
-namespace MitraisExervise.WebServices
+namespace MitraisExercise.WebServices
 {
     /// <summary>
     /// Summary description for BODSService
@@ -16,11 +17,19 @@ namespace MitraisExervise.WebServices
     // [System.Web.Script.Services.ScriptService]
     public class BODSService : System.Web.Services.WebService
     {
+    
+        [WebMethod]
+        public Guid AddDistributorRecord(DistributorModel entity)
+        {
+
+        }
 
         [WebMethod]
-        public string HelloWorld()
+        public bool UpdateDistributorRecord(DistributorModel entity)
         {
-            return "Hello World";
+
         }
+
+
     }
 }

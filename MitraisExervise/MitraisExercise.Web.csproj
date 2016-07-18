@@ -345,6 +345,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Attributes\SoapServiceResponse.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -395,6 +396,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MitraisExercise.Model\MitraisExercise.Model.csproj">
+      <Project>{5e745119-eda6-4956-947f-314463a216a6}</Project>
+      <Name>MitraisExercise.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MitraisExercise.Repository\MitraisExercise.Repository.csproj">
       <Project>{d5bb7850-4dea-4f76-a290-c47b2c717e3b}</Project>
       <Name>MitraisExercise.Repository</Name>
