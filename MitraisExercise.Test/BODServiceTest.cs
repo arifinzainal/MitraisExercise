@@ -53,6 +53,15 @@ namespace MitraisExercise.Test
             Assert.AreEqual(result.DataResults[0].BodsFullName, entityToUpdate.BodsFullName);
 
         }
+
+        [TestMethod]
+        public void FilterDistributorRecordWithGuidAndStatus()
+        {
+            var filterModel = new FilterModel { DistributorId = Guid.Parse("617dba9d-391b-4ca7-aeeb-0703ca526709"), DistributorStatus = Status.Active};
+            var result = _service.FilterDistributorRecord(new BODSService.FilterModel {DistributorId = filterModel.DistributorId, DistributorStatus = (BODSService.Status) filterModel.DistributorStatus});
+            Assert.AreEqual(1, result.DataResults.Length);
+
+        }
       
     }
 }

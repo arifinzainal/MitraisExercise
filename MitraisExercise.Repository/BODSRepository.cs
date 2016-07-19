@@ -16,7 +16,7 @@ namespace MitraisExercise.Repository
 
         public DistributorModel CreateRecord(DistributorModel model)
         {
-            DataTable.Rows.Add(model.BodsId, model.BodsFullName, model.BodsStatus);
+            DataTable.Rows.Add(Guid.NewGuid(), model.BodsFullName, model.BodsStatus);
             DataTable.AcceptChanges();
             return model;
         }
@@ -29,7 +29,7 @@ namespace MitraisExercise.Repository
 
             if (model.DistributorId != null)
             {
-                filter = String.Format("BODS_Id={0}",model.DistributorId);
+                filter = String.Format("BODS_Id='{0}'",model.DistributorId);
             }
 
             if (model.DistributorStatus != 0)
@@ -39,7 +39,7 @@ namespace MitraisExercise.Repository
 
             if (model.DistributorId != null && model.DistributorStatus != 0)
             {
-                filter = String.Format("BODS_Id={0} AND BODS_Status={1}", model.DistributorId, model.DistributorStatus);
+                filter = String.Format("BODS_Id='{0}' AND BODS_Status={1}", model.DistributorId, (int)model.DistributorStatus);
             }
             rows = !string.IsNullOrEmpty(filter) ? DataTable.Select(filter) : DataTable.Select();
 
@@ -56,7 +56,7 @@ namespace MitraisExercise.Repository
             var result = false;
             try
             {
-                var filter = String.Format("BODS_Id={0}", model.BodsId);             //filter first based on Bods Id 
+                var filter = String.Format("BODS_Id='{0}'", model.BodsId);             //filter first based on Bods Id 
                 var rows = DataTable.Select(filter);
                 rows[0]["BODS_Id"] = model.BodsId;
                 rows[0]["BODS_FullName"] = model.BodsFullName;
