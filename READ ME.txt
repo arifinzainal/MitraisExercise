@@ -2,3 +2,4 @@
 2. Publish into IIS 
 3. Access the asmx for example: http://localhost/MitraisExercise.Web/WebServices/BODSService.asmx
 4. Use WCFTestClient to  input the data and run the method
+5. Or Run the unit test
