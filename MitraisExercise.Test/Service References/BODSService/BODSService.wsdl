@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="AddDistributorRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:DistributorModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DistributorModel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BodsId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="BodsFullName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BodsStatus" type="tns:Status" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Status">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Active" />
+          <s:enumeration value="InActive" />
+          <s:enumeration value="Archived" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="AddDistributorRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddDistributorRecordResult" type="tns:SoapServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SoapServiceResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessResult" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataResults" type="tns:ArrayOfDistributorModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDistributorModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DistributorModel" nillable="true" type="tns:DistributorModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateDistributorRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:DistributorModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDistributorRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDistributorRecordResult" type="tns:SoapServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterDistributorRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filter" type="tns:FilterModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FilterModel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DistributorId" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="DistributorStatus" type="tns:Status" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FilterDistributorRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FilterDistributorRecordResult" type="tns:SoapServiceResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddDistributorRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDistributorRecord" />
+  </wsdl:message>
+  <wsdl:message name="AddDistributorRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:AddDistributorRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDistributorRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDistributorRecord" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDistributorRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDistributorRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="FilterDistributorRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:FilterDistributorRecord" />
+  </wsdl:message>
+  <wsdl:message name="FilterDistributorRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:FilterDistributorRecordResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BODSServiceSoap">
+    <wsdl:operation name="AddDistributorRecord">
+      <wsdl:input message="tns:AddDistributorRecordSoapIn" />
+      <wsdl:output message="tns:AddDistributorRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDistributorRecord">
+      <wsdl:input message="tns:UpdateDistributorRecordSoapIn" />
+      <wsdl:output message="tns:UpdateDistributorRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterDistributorRecord">
+      <wsdl:input message="tns:FilterDistributorRecordSoapIn" />
+      <wsdl:output message="tns:FilterDistributorRecordSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BODSServiceSoap" type="tns:BODSServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDistributorRecord">
+      <soap:operation soapAction="http://tempuri.org/AddDistributorRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDistributorRecord">
+      <soap:operation soapAction="http://tempuri.org/UpdateDistributorRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterDistributorRecord">
+      <soap:operation soapAction="http://tempuri.org/FilterDistributorRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BODSServiceSoap12" type="tns:BODSServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDistributorRecord">
+      <soap12:operation soapAction="http://tempuri.org/AddDistributorRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDistributorRecord">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDistributorRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterDistributorRecord">
+      <soap12:operation soapAction="http://tempuri.org/FilterDistributorRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BODSService">
+    <wsdl:port name="BODSServiceSoap" binding="tns:BODSServiceSoap">
+      <soap:address location="http://localhost/MitraisExercise.Web/WebServices/BODSService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BODSServiceSoap12" binding="tns:BODSServiceSoap12">
+      <soap12:address location="http://localhost/MitraisExercise.Web/WebServices/BODSService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MitraisExercise.Model;
 using System.Data;
 
@@ -17,11 +14,11 @@ namespace MitraisExercise.Repository
             LoadData();
         }
 
-        public Guid CreateRecord(DistributorModel model)
+        public DistributorModel CreateRecord(DistributorModel model)
         {
             DataTable.Rows.Add(model.BodsId, model.BodsFullName, model.BodsStatus);
             DataTable.AcceptChanges();
-            return model.BodsId;
+            return model;
         }
 
         public List<DistributorModel> FilterRecord(FilterModel model)
@@ -55,13 +52,25 @@ namespace MitraisExercise.Repository
 
         public bool UpdateRecord(DistributorModel model)
         {
-            throw new NotImplementedException();
+
+            var result = false;
+            try
+            {
+                var filter = String.Format("BODS_Id={0}", model.BodsId);             //filter first based on Bods Id 
+                var rows = DataTable.Select(filter);
+                rows[0]["BODS_Id"] = model.BodsId;
+                rows[0]["BODS_FullName"] = model.BodsFullName;
+                rows[0]["BODS_Status"] = model.BodsStatus;
+                DataTable.AcceptChanges();
+                result = true;
+            }
+            catch
+            {
+                result = false;
+            }
+            return result;
         }
-        
-        public bool UpdateBatchRecord(List<DistributorModel> models)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         #region Private Method 
         private void LoadData()

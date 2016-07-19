@@ -1,1 +1,1 @@
-﻿<%@ WebService Language="C#" CodeBehind="BODSService.asmx.cs" Class="MitraisExervise.WebServices.BODSService" %>
+﻿<%@ WebService Language="C#" CodeBehind="BODSService.asmx.cs" Class="MitraisExercise.WebServices.BODSService" %>
